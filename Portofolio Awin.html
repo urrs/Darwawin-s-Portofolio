@@ -1,0 +1,450 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darwawin's Portofolio </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+        }
+        
+        /* Navigation bar style */
+        nav {
+            background-color: #123872;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            position: relative;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #fffb12;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover {
+            color: #fffb12;
+            padding-bottom: 12px;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero section */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 46px;
+            color: #123872;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .hero .info {
+            max-width: 100%;
+        }
+        .hero h2 {
+            font-size: 50px;
+            color: #000000;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        .hero h3 {
+            font-size: 50px;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        .hero h3 span.first-part {
+            color: #000000;
+        }
+        .hero h3 span.second-part {
+            color: #123872;
+        }
+        .hero h4 {
+            font-size: 50px;
+            color: #000000;
+            margin-bottom: 50px;
+            margin-top: 10px;
+        }
+        .hero .contact-button {
+            padding: 10px 20px;
+            background-color: #123872;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero .contact-button:hover {
+            background-color: #fffb12;
+        }
+        .hero img {
+            border-radius: 100%;
+            width: 700px;
+            height: 700px;
+            object-fit: contain;
+            scale: 100px;
+            margin: 40;
+            display: block;
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .social-links a {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: #fffb12;
+        }
+        .footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            font-size: 16px;
+            color: #888;
+        }
+         /* About Me Section */
+        .about-me {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .about-me h2 {
+            font-size: 36px;
+            color: #123872;
+            margin-bottom: 20px;
+        }
+        .about-me p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .about-me img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            scale: 200px;
+            border-radius: 100%;
+            margin-bottom: 20px;
+        }
+         /* Skills Section */
+        .skills-section {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .skills-section h2 {
+            font-size: 36px;
+            color: #123872;
+            margin-bottom: 20px;
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .skill-item {
+            background-color: #f4f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.315);
+        }
+        .skill-item h3 {
+            font-size: 22px;
+            color: #123872;
+        }
+        .skill-item p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .skill-item:hover {
+            background-color: #fffb12; /* Light blue color on hover */
+            color: #fff; /* Change text color to white */
+            transform: scale(1.05); /* Slightly enlarge the item */
+        }
+        /* Style for the "Click Here to See the Project" button */
+        .view-project-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .click-box {
+            padding: 8px 20px;
+            font-weight: bold;
+            background-color: #123872;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .click-box:hover {
+            background-color: #fffb12;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        
+        /* Media Queries for Responsiveness */
+
+        /* Tablet View (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                padding: 30px;
+            }
+            .hero .info {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .hero h2, .hero h3, .hero h4 {
+                font-size: 40px;
+            }
+            .hero img {
+                width: 400px;
+                height: 400px;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a {
+                font-size: 16px;
+            }
+            .skills-list {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .about-me p {
+                font-size: 16px;
+            }
+        }
+
+        /* Mobile View (max-width: 768px) */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap; /* Allow items to wrap to the next line */
+                justify-content: center; /* Center items horizontally */
+                padding: 0 10px; /* Add some padding to the sides */
+            }
+            nav ul li {
+                margin: 5px 8px; /* Adjust margin for horizontal spacing */
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            header h1 {
+                font-size: 36px;
+            }
+            .hero {
+                padding: 20px;
+            }
+            .hero h2, .hero h3, .hero h4 {
+                font-size: 30px;
+            }
+            .hero img {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 20px;
+            }
+            .about-me h2, .skills-section h2 {
+                font-size: 30px;
+            }
+            .about-me p {
+                font-size: 14px;
+            }
+            .skills-list {
+                grid-template-columns: 1fr; /* Single column for mobile */
+            }
+            .social-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .social-links a {
+                font-size: 18px;
+            }
+            .work-item h3 {
+                font-size: 20px;
+            }
+            .work-item p {
+                font-size: 14px;
+            }
+            .click-box {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="https://wa.me/qr/SNN4AZSDI4FIF1"target="_blank">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Darwawin's Portofolio</h1>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="info">
+            <h2>Hi 👋🏻,</h2>
+            <h3><span class="first-part">I'm</span> <span class="second-part">Darwawin</span></h3>
+            <h4>Data Entry Clerk</h4>
+            <a href="https://wa.me/qr/SNN4AZSDI4FIF1" target="_blank">
+                <button class="contact-button">Contact Me</button>
+            </a>
+        </div>
+        <div class="image">
+            <img src="20250721_1637_Abstract Circular Frame_remix_01k0p5dfwge9p8gd5f09rw6bf3.png" alt="Your Name">
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-me" id="about">
+        <h2>About Me</h2>
+            <img src="New PNG 1.jpg" alt="Darwawin's Picture">
+        <p>Hi, I'm Darwawin, a passionate Data Entry Clerk with a strong interest in technology, software, and data management. I have an experience working with various data systems, including Microsoft Office, basic HTML, C++, and graphic design using CorelDraw and Canva. I am always eager to learn new techniques to improve accuracy and efficiency in data handling. My background as a Customer Service Officer has strengthened my communication skills, and with my C1 Advanced level in English, I am confident in my ability to interact effectively and build strong collaborations.</p>
+
+    <!-- Social Media Links -->
+   <section class="social-links">
+    <a href="https://www.instagram.com/darwawinperdanaa" target="_blank" style="display: flex; align-items: center;">
+        <img src="icons8-instagram-240.png" alt="Instagram" style="width: 30px; height: 30px; margin-right: 10px;"> Instagram
+    </a>
+    <a href="https://github.com/urrs" target="_blank" style="display: flex; align-items: center;">
+        <img src="icons8-github-50.png" alt="GitHub" style="width: 30px; height: 30px; margin-right: 10px;"> GitHub
+    </a>
+</section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill-item">
+                <h3>Data Entry & Management</h3>
+                <p>Experienced in entering, organizing, and managing data efficiently using various platforms and data management systems.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Microsoft Office Suite</h3>
+                <p>Advanced skills in Microsoft Excel, Word, PowerPoint, and Outlook, handling data, creating reports, and managing tasks.</p>
+            </div>
+            <div class="skill-item">
+                <h3>HTML & C++ (Basic)</h3>
+                <p>Basic knowledge of web development using HTML and programming in C++ to create simple web pages and applications.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Graphic Design (CorelDraw & Canva)</h3>
+                <p>Able to use CorelDraw and Canva to create appealing designs for marketing materials, presentations, and publications.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Customer Relationship Management (CRM)</h3>
+                <p>Experienced in using CRM tools to manage customer interactions and maintain detailed customer databases.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Communication</h3>
+                <p>Strong communication skills, both written and verbal, honed through previous experience as a Customer Service Officer.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Time Management</h3>
+                <p>Ability to prioritize tasks, meet deadlines, and manage time effectively in fast-paced environments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+<section class="works-section" id="works">
+    <h2>Works</h2>
+    <div class="work-item">
+        <h3>Web Development Project (HTML & C++)</h3>
+        <p><strong>Description:</strong> Created a school website for Bina Citra Sejati Kindergarten.</p>
+        <p><strong>Skills Used:</strong> HTML, C++, Web Design</p>
+        <a href="https://tk-bcs.github.io/tkbcs-registration/" target="_blank" class="view-project-link">
+            <span class="click-box">Click Here to See the Project</span>
+        </a>
+        <img src="Bina Citra Sejati regis-1.png" alt="Project Name" style="width: 100%; height: auto; border-radius: 10px;">
+        <img src="Bina Citra Sejati regis-2.png" alt="Project Name" style="width: 100%; height: auto; border-radius: 10px;">
+        
+        <h4>Customer Service Officer Intern | Sultan Mahmud Badaruddin II Airport, Palembang</h4>
+        <p><strong>Description:</strong> Communicating and assisting customers with professionalism, using appropriate English and Indonesian. Entry Data on FIDS (Flight Information Display System), AMS, Rekonsiliasi & OASYS</p>
+        <p><strong>Skills Used:</strong> Data Management, English & Indonesian</p>
+        <a href="https://drive.google.com/drive/folders/1SZC4ARO-TPkrld1HlQm-Gktf15toqJO2?usp=sharing" target="_blank" class="view-project-link">
+            <span class="click-box">Click Here to See the Performance</span>
+        </a>
+        <img src="IMG_20241024_131859.jpg" alt="Project Name" style="width: 100%; height: auto; border-radius: 10px;">
+        <img src="IMG_20241213_142651.jpg" alt="Project Name" style="width: 100%; height: auto; border-radius: 10px;">
+    </div>
+</section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2025 Darwawin Perdana. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
